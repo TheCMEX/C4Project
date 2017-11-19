@@ -1,22 +1,23 @@
-<!DOCTYPE html>
+{% extends 'base_discuss.html' %}
+{% load static %}<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% extends 'base.html' %}
+
 
     {% block title %}
-    {{ board.name }}
+    {{ board.name }} - {{ block.super }}
     {% endblock %}
     <link rel="stylesheet" href="../static/css/styleshit.css">
 </head>
 <body>
-{% block body %}
-    <div class="container">
-      <ol class="breadcrumb my-4" id="topics">
-        <li class="breadcrumb-item">Boards</li>
+    {% block breadcrumb %}
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
         <li class="breadcrumb-item active">{{ board.name }}</li>
-      </ol>
-    </div>
+     {% endblock %}
+
+{% block content %}
+
 {% endblock %}
 </body>
 </html>

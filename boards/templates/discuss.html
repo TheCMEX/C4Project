@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-    {% extends 'base.html' %}
+    {% extends 'base_discuss.html' %}
 
     {% block title %}
     C4 Обсуждение
@@ -18,11 +18,13 @@
         </div>
 
         <div class="col-xl-10 table7">
-            <ol class="breadcrumb my-4">
-            <li class="breadcrumb-item active">Boards</li>
-          </ol>
-          <table class="table">
-            <thead class="thead-inverse">
+            {% block breadcrumb %}
+
+          {% endblock %}
+
+            {% block content %}
+          <table class="table table-inverse">
+            <thead class="thead phone">
               <tr>
                 <th>Board</th>
                 <th>Posts</th>
@@ -34,7 +36,7 @@
               {% for board in boards %}
                 <tr>
                   <td>
-                    {{ board.name }}
+                      <a href="{% url 'board_topics' board.pk %}">{{ board.name }}</a>
                     <small class="text-muted d-block">{{ board.description }}</small>
                   </td>
                   <td class="align-middle">0</td>
@@ -44,6 +46,7 @@
               {% endfor %}
             </tbody>
           </table>
+            {% endblock %}
         </div>
 
         <div class="col-xl">

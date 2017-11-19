@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Django Boards{% endblock %}</title>
+    <link rel="stylesheet" href="../static/css/styleshit.css">
+</head>
+<body>
+{% block body %}
+    <div class="container">
+      <ol class="breadcrumb my-4">
+        {% block breadcrumb %}
+        {% endblock %}
+      </ol>
+      {% block content %}
+      {% endblock %}
+    </div>
+{% endblock %}
+</body>
+</html>

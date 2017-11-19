@@ -19,7 +19,7 @@
 }
 
 body {
-
+    background-image: url("../img/С4_background_07.jpg");
 }
 
 #blitzlogo {
@@ -32,7 +32,17 @@ body {
 
 .col-xl-10.table7{
     margin-top: 10%;
+
 }
-#topics{
+
+.breadcrumb{
     margin-top: 10%;
+}
+.phone{
+    background-color: rgba(22, 3, 25, .95);
+    color: white;
+}
+
+.text-muted{
+    color: black;
 }
