@@ -1,0 +1,4 @@
+/*
+$('carousel').carousel({
+    keyboard:true;
+})*/

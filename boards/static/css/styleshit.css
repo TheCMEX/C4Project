@@ -1,0 +1,38 @@
+.container-fluid {
+    margin: 0;
+    padding: 0;
+}
+
+.col-lg-7 {
+    margin: 0;
+    padding: 0;
+}
+
+.col-lg {
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 50px;
+    width: 50px;
+}
+
+body {
+
+}
+
+#blitzlogo {
+    margin-left: 2%;
+}
+
+#boards{
+    margin-top: 50%;
+}
+
+.col-xl-10.table7{
+    margin-top: 10%;
+}
+#topics{
+    margin-top: 10%;
+}
