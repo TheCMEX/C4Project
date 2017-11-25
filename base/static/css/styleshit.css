@@ -22,17 +22,13 @@ body {
     background-image: url("../img/С4_background_07.jpg");
 }
 
-#blitzlogo {
-    margin-left: 2%;
-}
 
 #boards{
-    margin-top: 50%;
+    margin-top: 60%;
 }
 
 .col-xl-10.table7{
     margin-top: 10%;
-
 }
 
 .breadcrumb{
@@ -45,4 +41,37 @@ body {
 
 .text-muted{
     color: black;
+}
+
+.dropdown-menu{
+    background-color: rgba(22, 3, 25, .95);
+}
+
+.dropdown-item{
+    color: white;
+}
+
+p{
+    font-size: large;
+    color: rgba(22, 3, 25, 1)
+}
+
+.btc{
+    color: white;
+}
+tr{
+    color: rgba(22, 3, 25, .95);
+}
+
+.face2face{
+    font-size: 100px;
+    text-align: center;
+}
+
+.news{
+    margin-top: 20%;
+ }
+
+.product{
+    font-size: 25px;
 }

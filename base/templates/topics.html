@@ -2,19 +2,20 @@
 {% load static %}<!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
 
 
     {% block title %}
-    {{ board.name }} - {{ block.super }}
+    {{ board.name }}
     {% endblock %}
     <link rel="stylesheet" href="../static/css/styleshit.css">
 </head>
 <body>
-    {% block breadcrumb %}
-        <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+    <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item"><a href="{% url 'board_topics' %}">Boards</a></li>
         <li class="breadcrumb-item active">{{ board.name }}</li>
-     {% endblock %}
+     </ol>
 
 {% block content %}
 

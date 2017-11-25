@@ -25,19 +25,19 @@
             {% block content %}
           <table class="table table-inverse">
             <thead class="thead phone">
-              <tr>
-                <th>Board</th>
-                <th>Posts</th>
-                <th>Topics</th>
-                <th>Last Post</th>
+              <tr class="btc">
+                <th>Обсуждение</th>
+                <th>Ответы</th>
+                <th>Топики</th>
+                <th>Последний ответ</th>
               </tr>
             </thead>
             <tbody>
-              {% for board in boards %}
+              {% for board in base %}
                 <tr>
                   <td>
                       <a href="{% url 'board_topics' board.pk %}">{{ board.name }}</a>
-                    <small class="text-muted d-block">{{ board.description }}</small>
+                    <small class="d-block">{{ board.description }}</small>
                   </td>
                   <td class="align-middle">0</td>
                   <td class="align-middle">0</td>

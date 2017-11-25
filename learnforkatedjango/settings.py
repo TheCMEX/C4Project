@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'boards',
+    'base',
 ]
 
 MIDDLEWARE = [
@@ -79,8 +79,10 @@ WSGI_APPLICATION = 'learnforkatedjango.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'learnforkatedjango',
+        'USER': 'dbuser',
+        'PASSWORD': '20041961oMAN',
     }
 }
 
@@ -122,3 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/static/media/'
+STATIC_ROOT = '/home/yury/Development/Django_learn/selflearn/learnforkate/learnforkatedjango/base/static/'
+MEDIA_ROOT = '/home/yury/Development/Django_learn/selflearn/learnforkate/learnforkatedjango/base/static/media/'
