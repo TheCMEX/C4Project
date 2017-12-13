@@ -1,2 +1,1 @@
-# Armanika
 # C4

@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf.urls.static import static
 
+from learnforkatedjango import settings
 
 urlpatterns = [
     url(r'^', include('base.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^', include('accounts.urls')),
 ]

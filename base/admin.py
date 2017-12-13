@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib import admin
-from .models import Board, Product, News
+from .models import Board, Product, News, Post
 
 
 class BoardAdmin(admin.ModelAdmin):
@@ -25,12 +25,19 @@ admin.site.register(Product, ProductAdmin)
 
 
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ['title', 'photo']
+    list_display = ['title', 'description', 'image_img']
 
 
 admin.site.register(News, NewsAdmin)
 
 
+class PostAdmin(admin.ModelAdmin):
+    list_display = ['topic', 'message', 'created_by', 'created_at']
+    list_filter = ['created_by', 'created_at', 'topic']
+    search_fields = ['topic', 'message', 'created_by', 'created_at']
+
+
+admin.site.register(Post, PostAdmin)
 
 
 

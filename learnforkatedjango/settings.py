@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
+    'widget_tweaks',
+
+    'accounts',
     'base',
 ]
 
@@ -57,7 +61,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates')
+            os.path.join(BASE_DIR, 'base/../templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -126,5 +130,16 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/static/media/'
-STATIC_ROOT = '/home/yury/Development/Django_learn/selflearn/learnforkate/learnforkatedjango/base/static/'
-MEDIA_ROOT = '/home/yury/Development/Django_learn/selflearn/learnforkate/learnforkatedjango/base/static/media/'
+STATIC_ROOT = '/static/'
+MEDIA_ROOT = '/static/media/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/home/yury/Development/Django_learn/selflearn/learnforkate/learnforkatedjango/static/',
+]
+
+LOGOUT_REDIRECT_URL = 'homepage'
+LOGIN_REDIRECT_URL = 'homepage'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOGIN_URL = 'login'

@@ -2,8 +2,12 @@
 from __future__ import unicode_literals
 
 import datetime
+import math
+from markdown import markdown
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils.safestring import mark_safe
+from django.utils.text import Truncator
 
 
 class Board(models.Model):
@@ -13,12 +17,41 @@ class Board(models.Model):
     def __str__(self):
         return "%s %s" % (self.name, self.description)
 
+    def get_posts_count(self):
+        return Post.objects.filter(topic__board=self).count()
+
+    def get_last_post(self):
+        return Post.objects.filter(topic__board=self).order_by('-created_at').first()
+
 
 class Topic(models.Model):
     subject = models.CharField(max_length=255)
     last_updated = models.DateTimeField(auto_now_add=True)
     board = models.ForeignKey(Board, related_name='topics')
     starter = models.ForeignKey(User, related_name='topics')
+    views = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.subject
+
+    def get_page_count(self):
+        count = self.posts.count()
+        pages = count / 20
+        return math.ceil(pages)
+
+    def has_many_pages(self, count=None):
+        if count is None:
+            count = self.get_page_count()
+        return count > 6
+
+    def get_page_range(self):
+        count = self.get_page_count()
+        if self.has_many_pages(count):
+            return range(1, 5)
+        return range(1, int(count + 1))
+
+    def get_last_ten_posts(self):
+        return self.posts.order_by('-created_at')[:10]
 
 
 class Post(models.Model):
@@ -28,6 +61,13 @@ class Post(models.Model):
     updated_at = models.DateTimeField(null=True)
     created_by = models.ForeignKey(User, related_name='posts')
     updated_by = models.ForeignKey(User, null=True, related_name='+')
+
+    def __str__(self):
+        truncated_message = Truncator(self.message)
+        return truncated_message.chars(30)
+
+    def get_message_as_markdown(self):
+        return mark_safe(markdown(self.message, safe_mode='escape'))
 
 
 # class Team(models.Model):
@@ -51,8 +91,8 @@ class Post(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=50, verbose_name='Товар')
     description = models.CharField(max_length=100, verbose_name='Описание', default='Описание')
-    photo = models.ImageField(upload_to='../../static/media/images/products/%Y/%m/%d', null=False, blank=True,
-                              verbose_name='Изображение',  help_text='150x150px')
+    photo = models.ImageField(upload_to='static/media/images/products/%Y/%m/%d', null=False, blank=True,
+                              verbose_name='Изображение', help_text='200x200px')
 
     def __str__(self):
         return '%s %s %s' % (self.name, self.description, self.photo)
@@ -62,8 +102,8 @@ class News(models.Model):
     title = models.CharField(max_length=50, verbose_name='Заголовок')
     description = models.TextField(max_length=250, verbose_name='Описание', default='Описание')
     text = models.TextField(verbose_name='Текст новости')
-    photo = models.ImageField(upload_to='../../static/media/images/news/%Y/%m/%d', blank=True,
-                              verbose_name='Изображение', help_text='150x150px')
+    photo = models.ImageField(upload_to='static/media/images/news/%Y/%m/%d', blank=True,
+                              verbose_name='Изображение', help_text='200x200px')
     date = models.DateField(default=str(datetime.datetime.now())[:10])
 
     def __str__(self):
@@ -71,3 +111,12 @@ class News(models.Model):
 
     class Meta:
         verbose_name_plural = 'News'
+
+    def image_img(self):
+        if self.photo:
+            return u'<a href="{0}" target="_blank"><img src="{0}" width="100"/></a>'.format(self.photo.url)
+        else:
+            return '(Нет изображения)'
+
+    image_img.short_description = 'Картинка'
+    image_img.allow_tags = True

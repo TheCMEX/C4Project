@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% extends 'base_discuss.html' %}
+{% load humanize %}
+
+    {% block title %}
+    C4 Обсуждение
+    {% endblock %}
+
+</head>
+<body>
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12" style="margin-top: 11%">
+            {% block breadcrumb %}
+
+          {% endblock %}
+
+            {% block content %}
+                <div class="jumbotron" style="background-color: rgba(220, 220, 220, .65); padding-top: 5%; padding-bottom: 2%;">
+          <table class="table">
+            <thead class="phone">
+              <tr class="btc">
+                <th>Обсуждение</th>
+                <th>Ответы</th>
+                <th>Темы</th>
+                <th>Последний ответ</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for board in base %}
+                <tr>
+                  <td>
+                      <a href="{% url 'board_topics' board.pk %}" style="color: black"><b>{{ board.name }}</b></a>
+                  </td>
+                  <td class="align-middle">{{ board.get_posts_count }}</td>
+                  <td class="align-middle">{{ board.topics.count }}</td>
+                  <td class="align-middle">
+                      {% with post=board.get_last_post %}
+                          {% if post %}
+                          <div>
+                              <a style="color: black" href="{% url 'topic_posts' board.pk post.topic.pk %}">
+                                  {{ post.created_by.username }} {{ post.created_at|naturaltime }}
+                              </a>
+                          </div>
+                          {% else %}
+                              <div style="color: black" class="text-muted">
+                                  <em>No posts yet.</em>
+                              </div>
+                          {% endif %}
+                      {% endwith %}
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

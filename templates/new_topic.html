@@ -1,0 +1,21 @@
+{% extends 'base_discuss.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}Новая тема{% endblock %}
+
+{% block breadcrumb %}
+
+  <li class="breadcrumb-item"><a style="color: black" href="{% url 'discuss' %}">Обсуждения</a></li>
+  <li class="breadcrumb-item"><a style="color: black" href="{% url 'board_topics' board.pk %}">{{ board.name }}</a></li>
+  <li class="breadcrumb-item active">Новая тема</li>
+
+{% endblock %}
+
+{% block content %}
+  <form method="post" novalidate>
+  {% csrf_token %}
+      {% include 'includes/form.html' %}
+      <button type="submit" class="btn btn-dark">Опубликовать</button>
+  </form>
+{% endblock %}

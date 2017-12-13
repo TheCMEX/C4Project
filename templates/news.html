@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% extends 'base.html' %}
+
+    {% block title %}
+    Новости
+    {% endblock %}
+
+</head>
+<body>
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-xl"></div>
+        <div class="col-xl-9" style="margin-top: 9%">
+            {% for post in post %}
+                <div class="jumbotron" style="background-color: gainsboro; padding-top: 6%; padding-bottom: 2%; {% comment %}padding-left: 8%; padding-right: 8%{% endcomment %}">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <h3 style="font-size: 35px;">{{ post.title }}</h3>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <span style="color: black">{{ post.description|linebreaks }}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            {% if post.photo %}
+                                <p style="text-align: center;">
+                                    <img src="{{ MEDIA_URL }}{{ post.photo }}" width="97%" height="auto" style="border-radius: 7px">
+                                </p>
+                            {% endif %}
+                        </div>
+                        <div class="row">
+                                <div class="col-xl-6 text-left">
+                                    <span style="font-size: 15px; color: dimgray ">{{ post.date }}</span>
+                                </div>
+                                <div class="col-xl-6 text-right">
+                                    <div class="btn-group">
+                                        <a href="/news/post/{{ post.id }}"><button class="btn btn-dark">Читать</button></a>
+                                    </div>
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-xl"></div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
+
+
+
+
+
+
+
+{% for news in news %}
+
+                        <h4 class="newsp text-center"><b>{{ news.title }}</b></h4>
+                    {% endfor %}
