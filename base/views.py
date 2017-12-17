@@ -179,7 +179,7 @@ class TopicListView(ListView):
     model = Topic
     context_object_name = 'topics'
     template_name = 'topics.html'
-    paginate_by = 20
+    paginate_by = 10
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

@@ -1,12 +1,5 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-    <title>{% block title %}Django Boards{% endblock %}</title>
-</head>
-<body>
+{% block title %}Django Boards{% endblock %}
 {% block body %}
     <div class="container" style="margin-top: 7%">
 
@@ -14,12 +7,11 @@
           {% block breadcrumb %}
           {% endblock %}
         </ol>
-        <div class="jumbotron" style="background-color: rgba(220, 220, 220, .65); padding-top: 3%; padding-bottom: 2%; {% comment %}padding-left: 8%; padding-right: 8%{% endcomment %}">
-        {% block content %}
 
-        {% endblock %}
-    </div>
+        <div class="jumbotron" style="background-color: rgba(220, 220, 220, .65); padding-top: 3%; padding-bottom: 2%;">
+            {% block content %}
+            {% endblock %}
+        </div>
+
     </div>
 {% endblock %}
-</body>
-</html>

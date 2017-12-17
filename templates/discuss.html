@@ -43,12 +43,12 @@
                           {% if post %}
                           <div>
                               <a style="color: black" href="{% url 'topic_posts' board.pk post.topic.pk %}">
-                                  {{ post.created_by.username }} {{ post.created_at|naturaltime }}
+                                  {{ post.created_by.username }} ответил {{ post.created_at|naturaltime }}
                               </a>
                           </div>
                           {% else %}
                               <div style="color: black" class="text-muted">
-                                  <em>No posts yet.</em>
+                                  <em>Ещё нет начатых тем.</em>
                               </div>
                           {% endif %}
                       {% endwith %}

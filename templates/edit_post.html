@@ -25,6 +25,6 @@
     {% csrf_token %}
     {% include 'includes/form.html' %}
     <button type="submit" class="btn btn-success">Сохранить изменения</button>
-    <a href="{% url 'topic_posts' post.topic.board.pk post.topic.pk %}" class="btn btn-dark" role="button">Отмена</a>
+    <a href="{% url 'topic_posts' post.topic.board.pk post.topic.pk %}" class="btn button" role="button">Отмена</a>
   </form>
 {% endblock %}

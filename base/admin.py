@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib import admin
-from .models import Board, Product, News, Post
+from .models import Board, Product, News, Post, Topic
 
 
 class BoardAdmin(admin.ModelAdmin):
@@ -40,6 +40,11 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Post, PostAdmin)
 
 
+class TopicAdmin(admin.ModelAdmin):
+    list_display = ['subject', 'starter']
+
+
+admin.site.register(Topic, TopicAdmin)
 
 
 
