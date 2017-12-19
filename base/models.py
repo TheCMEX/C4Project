@@ -88,22 +88,13 @@ class Post(models.Model):
 #             self.player6,
 #             self.player7, self.player8)
 
-class Product(models.Model):
-    name = models.CharField(max_length=50, verbose_name='Товар')
-    description = models.CharField(max_length=100, verbose_name='Описание', default='Описание')
-    photo = models.ImageField(upload_to='static/media/images/products/%Y/%m/%d', null=False, blank=True,
-                              verbose_name='Изображение', help_text='200x200px')
-
-    def __str__(self):
-        return '%s %s %s' % (self.name, self.description, self.photo)
-
 
 class News(models.Model):
     title = models.CharField(max_length=50, verbose_name='Заголовок')
     description = models.TextField(max_length=250, verbose_name='Описание', default='Описание')
     text = models.TextField(verbose_name='Текст новости')
-    photo = models.ImageField(upload_to='static/media/images/news/%Y/%m/%d', blank=True,
-                              verbose_name='Изображение', help_text='200x200px')
+    photo = models.ImageField(blank=True, upload_to='media/images/news/%Y/%m/%d', help_text='200x200px',
+                              verbose_name='Ссылка картинки')
     date = models.DateField(default=str(datetime.datetime.now())[:10])
 
     def __str__(self):

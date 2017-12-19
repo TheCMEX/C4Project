@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    {% extends 'base.html' %}
+ {% extends 'base.html' %}
 
     {% block title %}
     Новости
     {% endblock %}
 
-</head>
-<body>
 {% block body %}
 <div class="container">
     <div class="row">
@@ -32,7 +26,7 @@
                         <div class="row">
                             {% if post.photo %}
                                 <p style="text-align: center;">
-                                    <img src="{{ MEDIA_URL }}{{ post.photo }}" width="97%" height="auto" style="border-radius: 7px">
+                                    <img src="{{ MEDIA_URL }}{{ post.photo.url }}" width="97%" height="auto" style="border-radius: 7px">
                                 </p>
                             {% endif %}
                         </div>
@@ -58,11 +52,11 @@
                                     <p>
                                         {{ post.text|linebreaks }}
                                     </p>
-                                    {% if post.photo %}
+
                                         <p style="text-align: center;">
-                                            <img src="{{ MEDIA_URL }}{{ post.photo }}" width="100%" height="auto" style="border-radius: 7px">
+                                            <img src="{{ MEDIA_URL }}{{ post.photo.url }}" width="100%" height="auto" style="border-radius: 7px">
                                         </p>
-                                    {% endif %}
+
                                 </div>
                                 <div class="modal-footer">
                                     <div class="col-lg-6 text-left">
@@ -83,9 +77,6 @@
     </div>
 </div>
 {% endblock %}
-</body>
-</html>
-
 
 
 

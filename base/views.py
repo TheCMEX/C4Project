@@ -10,11 +10,17 @@ from django.utils.decorators import method_decorator
 from django.views.generic import UpdateView, ListView
 from django.utils import timezone
 from base.forms import NewTopicForm, PostForm
-from base.models import Board, Product, News, Topic, Post
+from base.models import Board, News, Topic, Post
 
 
 def homepage(request):
-    return render(request, 'homepage.html')
+    post = reversed(News.objects.all())
+    last_post = reversed(News.objects.all()[:5])
+    context = {
+        'last_posts': last_post,
+        'posts': post
+    }
+    return render(request, 'homepage.html', context)
 
 
 def discuss(request):
@@ -153,7 +159,7 @@ def news(request):
     post = reversed(News.objects.all())
 
     context = {
-        'post': post
+        'posts': post
     }
     return render(request, 'news.html', context)
 

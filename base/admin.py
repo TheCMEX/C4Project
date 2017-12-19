@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib import admin
-from .models import Board, Product, News, Post, Topic
+from .models import Board, News, Post, Topic
 
 
 class BoardAdmin(admin.ModelAdmin):
@@ -16,16 +16,8 @@ class BoardAdmin(admin.ModelAdmin):
 admin.site.register(Board, BoardAdmin)
 
 
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'description']
-    fields = ['name', 'description', 'photo']
-
-
-admin.site.register(Product, ProductAdmin)
-
-
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ['title', 'description', 'image_img']
+    list_display = ['title', 'description', 'photo', 'image_img']
 
 
 admin.site.register(News, NewsAdmin)

@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = '01l9+g(yd!i!va@7up_k4rxhev4)-c^08^2th=d%eaopv+j#*^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -128,14 +128,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
-MEDIA_URL = '/static/media/'
-STATIC_ROOT = '/static/'
-MEDIA_ROOT = '/static/media/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    '/home/yury/Development/Django_learn/selflearn/learnforkate/learnforkatedjango/static/',
-]
+MEDIA_URL = '/media/'
+STATIC_ROOT = 'static/'
+MEDIA_ROOT = '/media/'
 
 LOGOUT_REDIRECT_URL = 'homepage'
 LOGIN_REDIRECT_URL = 'homepage'
