@@ -129,8 +129,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATIC_ROOT = 'static/'
+STATIC_ROOT = '/static/'
 MEDIA_ROOT = '/media/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/home/yury/Development/Django_learn/selflearn/learnforkate/learnforkatedjango/static/',
+]
 
 LOGOUT_REDIRECT_URL = 'homepage'
 LOGIN_REDIRECT_URL = 'homepage'

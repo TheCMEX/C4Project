@@ -26,7 +26,7 @@
                         <div class="row">
                             {% if post.photo %}
                                 <p style="text-align: center;">
-                                    <img src="{{ MEDIA_URL }}{{ post.photo.url }}" width="97%" height="auto" style="border-radius: 7px">
+                                    <img src="{{ MEDIA_URL }}{{ post.photo }}" width="97%" height="auto" style="border-radius: 7px">
                                 </p>
                             {% endif %}
                         </div>
@@ -54,7 +54,7 @@
                                     </p>
 
                                         <p style="text-align: center;">
-                                            <img src="{{ MEDIA_URL }}{{ post.photo.url }}" width="100%" height="auto" style="border-radius: 7px">
+                                            <img src="{{ MEDIA_URL }}{{ post.photo }}" width="100%" height="auto" style="border-radius: 7px">
                                         </p>
 
                                 </div>

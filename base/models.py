@@ -93,7 +93,7 @@ class News(models.Model):
     title = models.CharField(max_length=50, verbose_name='Заголовок')
     description = models.TextField(max_length=250, verbose_name='Описание', default='Описание')
     text = models.TextField(verbose_name='Текст новости')
-    photo = models.ImageField(blank=True, upload_to='media/images/news/%Y/%m/%d', help_text='200x200px',
+    photo = models.ImageField(blank=True, upload_to='images/news/%Y/%m/%d', help_text='200x200px',
                               verbose_name='Ссылка картинки')
     date = models.DateField(default=str(datetime.datetime.now())[:10])
 
