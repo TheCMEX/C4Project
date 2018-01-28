@@ -88,3 +88,15 @@ tr{
     background-color: white;
     color: rgba(22, 3, 21, 1);
 }
+
+.bigger{
+    /*-moz-transition: all 1s ease-out;*/
+    /*-o-transition: all 1s ease-out;*/
+    /*-webkit-transition: all 1s ease-out;*/
+}
+
+.bigger:hover{
+     /*-webkit-transform: scale(1.5);*/
+     /*-moz-transform: scale(1.5);*/
+     /*-o-transform: scale(1.5);*/
+}

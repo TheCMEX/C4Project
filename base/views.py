@@ -134,25 +134,8 @@ def teams_c4(request):
     return render(request, 'teams_c4.html')
 
 
-def teams_face2face(request):
-    return render(request, 'teams_face2face.html')
-
-
-def teams_isopromat(request):
-    return render(request, 'teams_isopromat.html')
-
-
 def achievements(request):
     return render(request, 'achievements.html')
-
-
-def product(request):
-    products = Product.objects.all()
-
-    context = {
-        'products': products
-    }
-    return render(request, 'product.html', context)
 
 
 def news(request):

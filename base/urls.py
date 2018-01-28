@@ -1,5 +1,5 @@
 from base import views
-from base.views import homepage, discuss, teams_c4, teams_face2face, teams_isopromat, achievements, product, news, \
+from base.views import homepage, discuss, teams_c4, achievements, news, \
     newspost, board_topics, new_topic
 from django.conf.urls import url
 

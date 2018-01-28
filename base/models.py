@@ -70,25 +70,6 @@ class Post(models.Model):
         return mark_safe(markdown(self.message, safe_mode='escape'))
 
 
-# class Team(models.Model):
-#     team_name = models.CharField(max_length=25, unique=True)
-#     player = models.CharField(max_length=25, unique=True)
-#     player1 = models.CharField(max_length=25, unique=True)
-#     player2 = models.CharField(max_length=25, unique=True)
-#     player3 = models.CharField(max_length=25, unique=True)
-#     player4 = models.CharField(max_length=25, unique=True)
-#     player5 = models.CharField(max_length=25, unique=True)
-#     player6 = models.CharField(max_length=25, unique=True)
-#     player7 = models.CharField(max_length=25, unique=True)
-#     player8 = models.CharField(max_length=25, unique=True)
-#
-#     def __str__(self):
-#         return "%s %s %s %s %s %s %s %s %s %s" % (
-#             self.team_name, self.player, self.player1, self.player2, self.player3, self.player4, self.player5,
-#             self.player6,
-#             self.player7, self.player8)
-
-
 class News(models.Model):
     title = models.CharField(max_length=50, verbose_name='Заголовок')
     description = models.TextField(max_length=250, verbose_name='Описание', default='Описание')

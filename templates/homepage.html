@@ -38,12 +38,12 @@
                                 <div class="col-xl-7">
                                     {% if post.photo %}
                                         <p style="text-align: center;">
-                                            <img src="{{ MEDIA_URL }}{{ post.photo.url }}" width="100%" height="auto" style="border-radius: 7px">
+                                            <img src="{{ post.photo.url }}" width="100%" height="auto" style="border-radius: 7px">
                                         </p>
                                     {% endif %}
                                 </div>
                                 <div class="col-xl-5">
-                                    <strong style="font-size: 1.4vw; color: rgba(22, 3, 25, 1)">{{ post.title }}</strong>
+                                    <strong class="" style="font-size: 1.4vw; color: rgba(22, 3, 25, 1)">{{ post.title }}</strong>
                                 </div>
                             {% endfor %}
                             </div>
